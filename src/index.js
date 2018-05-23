@@ -10,7 +10,6 @@ module.exports.checkAuth = function(req, res, next) {
   res.redirect(process.env.APP_AUTH_MANAGER_NODE_URL + '/login?redirect='+process.env.APP_URL);
 }
 
-
 module.exports.setCookie = function(req, res) {
 
   // If we have a session ID in our query params, use that as our new session ID and redirect to homepage
