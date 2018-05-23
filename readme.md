@@ -10,7 +10,7 @@ Authentication middleware is provided out of the box. To make use of the middlew
 
 ```js
 // Require our package
-const usay = require('usay-auth-middleware');
+const usay = require('usay-app-core');
 
 // Create a protected route
 app.get('/', usay.checkAuth, (req, res) => { res.send("I'm protected!") });
@@ -32,7 +32,7 @@ The package also provides a very simple way of getting up and running with redis
 
 ```js
 // Require our package
-const usay = require('usay-auth-middleware');
+const usay = require('usay-app-core');
 
 // Initialise the session (if you're using express.static(), it should be above this statement as to not cause issues)
 app.use(usay.session());
