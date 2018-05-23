@@ -14,9 +14,9 @@ module.exports.checkAuth = function(req, res, next) {
 module.exports.setCookie = function(req, res) {
 
   // If we have a session ID in our query params, use that as our new session ID and redirect to homepage
-  if (req.query.sessionID !== undefined) {
+  if (req.query.cookieID !== undefined) {
     
-    res.cookie('usay_session', decodeURIComponent(req.query.sessionID));
+    res.cookie('usay_session', decodeURIComponent(req.query.cookieID));
     // Now redirect to homepage
     res.redirect('/');
 
