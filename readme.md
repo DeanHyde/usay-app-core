@@ -19,11 +19,11 @@ app.get('/', usay.checkAuth, (req, res) => { res.send("I'm protected!") });
 app.get('/foo', usay.checkAuth, (req, res) => { res.send("I'm open to the world!") });
 ```
 
-For the authentication middleware to work correctly, you must also setup a route that will handle the redirect back from our authentication server. To do this, simply setup an unprotected `/setToken` route that calls the `usay.setToken()` function like this:
+For the authentication middleware to work correctly, you must also setup a route that will handle the redirect back from our authentication server. To do this, simply setup an unprotected `/setToken` route that calls the `usay.setCookie()` function like this:
 
 ```js
 // This is set to handle the redirect back from the auth manager
-app.get('/setToken', (req, res) => usay.setToken(req, res));
+app.get('/setCookie', (req, res) => usay.setCookie(req, res));
 ```
 
 ## Session Setup
