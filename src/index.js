@@ -9,7 +9,7 @@ module.exports.checkAuth = function(req, res, next) {
   if (req.session !== undefined && req.session.authenticated)
     return next();
   // Otherwise, we redirect off to our authentication manager
-  res.redirect(authURL + '/login?redirect='+process.env.APP_URL);
+  res.redirect(authURL + '/login?redirect=//'+req.headers.host);
 }
 
 module.exports.setup = function(app) {
