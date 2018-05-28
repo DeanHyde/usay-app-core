@@ -1,7 +1,7 @@
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 
-const authURL = process.env.APP_AUTH_MANAGER_NODE_URL;
+const authURL = process.env.APP_AUTH_MANAGER_URL;
 
 module.exports.checkAuth = function(req, res, next) {
 
