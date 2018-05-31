@@ -1,6 +1,6 @@
 {
   "name": "usay-app-core",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Application Core Package for NodeJS frontends",
   "main": "src/index.js",
   "scripts": {
