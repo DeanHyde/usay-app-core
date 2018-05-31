@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/png" sizes="96x96" href="{{env.APP_CDN_URL}}/img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="{{env.APP_CDN_URL}}/css/vendor/open-iconic-bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+
+    <title>4C - {{title}}</title>
+
+</head>
+
+<body class="light">
+
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/"><img id="logo" src="{{env.APP_CDN_URL}}/img/logo@1x.png" alt="Usay Compare" height="40"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav nav-text mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{env.APP_AUTH_MANAGER_URL}}"><span class="oi oi-grid-three-up"></span>Dashboard <span class="sr-only">(current)</span></a>
+            </li>
+            {{#hasRole "Global Admin" roles=session.user.roles}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{env.APP_MANAGEMENT_URL}}"><span class="oi oi-wrench"></span> Management</a>
+                </li>
+            {{/hasRole}}
+            {{#hasRole "Life Sales Adviser" roles=session.user.roles}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{env.APP_4C_LIFE_URL}}"><span class="oi oi-list-rich"></span>Journey</a>
+                </li>
+            {{/hasRole}}
+        </ul>
+        <ul class="navbar-nav nav-icons">
+            <li class="nav-item">
+                <a href="#" id="notification"  class="nav-link nav-popover" data-parent-id="notification" data-container="body"
+                   data-toggle="popover" data-placement="bottom" data-popover-content="#notification-content">
+                    <span class="oi oi-bell"></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" id="phone" class="nav-link nav-popover" data-parent-id="phone" data-container="body"
+                   data-toggle="popover" data-placement="bottom" data-popover-content="#dialler-content">
+                    <span class="oi oi-headphones"></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" id="user-account" class="nav-link nav-popover" data-parent-id="user-account" data-container="body"
+                   data-toggle="popover" data-placement="bottom" data-popover-content="#user-content">
+                    <span class="oi oi-person"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid h-100">
+    {{{body}}}
+</div>
+
+{{!-- Dialler Popover Content --}}
+<div id="dialler-content" style="display:none;">
+    <div class="popover-body">
+        <div class="container">
+            <div class="row">
+                <div class="col" style="margin-right: 40px;">
+                    <h3>Ready to dial</h3><small>Available</small>
+                </div>
+                <div class="col">
+                    <a href="#" class="btn btn-success">Start Dialling <span class="oi oi-chevron-right"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Notifications Popover Content --}}
+<div id="notification-content" style="display:none;">
+    <div class="popover-body">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3>Your Notifications</h3>
+                    <hr>
+                    <p><span class="oi oi-x text-danger mr-2"></span> Nothing new to show...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- User Popover Content --}}
+<div id="user-content" style="display:none;">
+    <div class="popover-body">
+        <div class="container user-popover">
+            <div class="row">
+                <div class="col">
+                    <ul>
+                        <li><a href="{{env.APP_AUTH_MANAGER_URL}}/my-account">{{session.user.first_name}} {{session.user.last_name}}<span class="oi oi-person ml-3"></span></a></li>
+                        <li><a href="{{env.APP_AUTH_MANAGER_URL}}/settings">Settings <span class="oi oi-cog ml-3"></span></a></li>
+                        <li><a href="/logout">Sign out <span class="oi oi-account-logout ml-3"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{env.APP_CDN_URL}}/js/vendor/jquery-3.3.1.min.js"></script>
+<script src="{{env.APP_CDN_URL}}/js/vendor/bootstrap.bundle.min.js"></script>
+<script src="{{env.APP_CDN_URL}}/js/vendor/anime.min.js"></script>
+<script src="{{env.APP_CDN_URL}}/global.js"></script>
+
+</body>
+
+</html>

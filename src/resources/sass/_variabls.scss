@@ -1,0 +1,44 @@
+$body:             'Open Sans', sans-serif;
+$brand:            'sofia-pro', sans-serif;
+
+// Colors
+$blue:             #5CC0E8;
+$green:            #86bc25;
+$white:            #FAFCFF;
+$grey:             #ecf0f1;
+$black:            #00222b;
+
+$success:          #2ecc71;
+$warning:          #CDEC3D;
+$danger:           #DA5F68;
+
+// Dashboard Vars
+$dash-body:             'Open Sans', sans-serif;
+$dash-brand:            'sofia-pro', sans-serif;
+
+// Colors
+$dash-blue:             #49b8e4;
+$dash_purple:           #6d6bae;
+$dash-green:            #34b296;
+$dash-white:            #EFE9F4;
+$dash-black:            #00222b;
+$dash-red:              #E8001F;
+
+$dash-blue-light:       lighten($dash-black, 50%);
+
+$dash-grey-dark:        lighten($dash-black, 5%);
+$dash-grey-blue:        lighten($dash-black, 20%);
+$dash-grey-light:       lighten($dash-black, 80%);
+$dash-grey:             desaturate($dash-grey-blue, 80%);
+
+$dash-success:          #2ecc71;
+$dash-warning:          #CDEC3D;
+$dash-danger:           #DA5F68;
+
+// Navigation Vars
+$nav-fg: #fffeff;
+$nav-bg: #00272e;
+$nav-border: #56c3f0;
+$nav-bg-hover: #1c3f46;
+$icon-hover: $nav-border;
+$transition-speed: 300ms;

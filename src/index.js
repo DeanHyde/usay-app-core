@@ -7,7 +7,7 @@ const authURL = process.env.APP_AUTH_MANAGER_URL;
 
 const handlebarsConfig = {
   extname: '.hbs',
-  layoutsDir: 'src/resources/views/layouts',
+  layoutsDir: '/app/node_modules/usay-app-core/src/resources/views/layouts',
   defaultLayout: 'main',
   helpers: {
     jsonToString: function(json) { return JSON.stringify(json, null, 4); },
