@@ -15,6 +15,11 @@ const handlebarsConfig = {
     hasRole: function(role, options) {
       return (options.hash.roles.find(o => o.name === role) !== undefined) ? options.fn(this) : options.inverse(this)
     },
+    section: function(name, options){ 
+      if(!this._sections) this._sections = {};
+      this._sections[name] = options.fn(this); 
+      return null;
+    },
     eq: function (v1, v2) {
       return v1 === v2;
     },
