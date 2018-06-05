@@ -102,7 +102,7 @@ function setCookie(req, res) {
 // Bootstrap our session
 function usaySession() {
   return session({
-    store: new RedisStore({host: 'redis', port: 6379}),
+    store: new RedisStore({host: process.env.REDIS_HOST, port: 6379}),
     secret: 'keyboard cat',
     name: 'usay_session',
     resave: false,
