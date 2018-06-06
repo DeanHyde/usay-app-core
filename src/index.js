@@ -2,11 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs  = require('express-handlebars');
 const RedisStore = require('connect-redis')(session);
-
-// Only include this for non-local environments
-if (process.env.ENVIRONMENT != "local") {
-  const Redis = require('ioredis');
-}
+const Redis = require('ioredis');
 
 const authURL = process.env.APP_AUTH_MANAGER_URL;
 
@@ -120,7 +116,7 @@ function usaySession() {
 
   } else {
 
-    var redis = new Redis.Cluster([{
+    let redis = new Redis.Cluster([{
       host: process.env.REDIS_HOST,
       port: 6379
     }]);
