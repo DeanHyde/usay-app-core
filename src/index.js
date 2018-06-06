@@ -3,6 +3,11 @@ const session = require('express-session');
 const exphbs  = require('express-handlebars');
 const RedisStore = require('connect-redis')(session);
 
+// Only include this for non-local environments
+if (process.env.ENVIRONMENT != "local") {
+  const Redis = require('ioredis');
+}
+
 const authURL = process.env.APP_AUTH_MANAGER_URL;
 
 const handlebarsConfig = {
@@ -101,11 +106,31 @@ function setCookie(req, res) {
 
 // Bootstrap our session
 function usaySession() {
-  return session({
-    store: new RedisStore({host: process.env.REDIS_HOST, port: 6379}),
-    secret: 'keyboard cat',
-    name: 'usay_session',
-    resave: false,
-    saveUninitialized: false,
-  })
+
+  // Single instance for local env
+  if (process.env.ENVIRONMENT == "local") {
+
+    return session({
+      store: new RedisStore({host: process.env.REDIS_HOST, port: 6379}),
+      secret: 'keyboard cat',
+      name: 'usay_session',
+      resave: false,
+      saveUninitialized: false,
+    });
+
+  } else {
+
+    var redis = new Redis.Cluster([{
+      host: process.env.REDIS_HOST,
+      port: 6379
+    }]);
+
+    return session({
+      store: new RedisStore({ client: redis }),
+      secret: 'keyboard cat',
+      name: 'usay_session',
+      resave: false,
+      saveUninitialized: false,
+    });
+  }
 }

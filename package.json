@@ -12,6 +12,7 @@
     "connect-redis": "^3.3.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.6"
+    "express-session": "^1.15.6",
+    "ioredis": "^3.2.2"
   }
 }
