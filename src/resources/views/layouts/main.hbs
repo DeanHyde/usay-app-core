@@ -119,7 +119,7 @@
     window.user = {{{jsonToString session.user}}};
     window.env  = {{{jsonToString env}}};
 </script>
-
+{{{_sections.scriptBefore}}}
 <script src="{{env.APP_CDN_URL}}/js/vendor/jquery-3.3.1.min.js"></script>
 <script src="{{env.APP_CDN_URL}}/js/vendor/bootstrap.bundle.min.js"></script>
 <script src="{{env.APP_CDN_URL}}/js/vendor/anime.min.js"></script>
