@@ -60,7 +60,9 @@ module.exports.checkAuth = function(req, res, next) {
 // Bootstraps our node application
 module.exports.setup = function(app, authManager=false) {
   // Setup our public directory
-  app.use(express.static('dist'));
+  app.use(express.static('dist', {
+    maxage: '24h'
+  })));
   // Don't setup the following routes for the auth manager
   if (!authManager) {
     // Setup setCookie route
